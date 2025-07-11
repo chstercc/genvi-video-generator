@@ -1,0 +1,35 @@
+# Root level gitignore for the entire project
+
+### Environment Variables and Sensitive Config ###
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.production.local
+
+### Files that may contain API Keys ###
+**/application.properties
+**/application-*.properties
+config/
+secrets/
+*.config
+secrets.json
+keys.json
+credentials.json
+api-keys.txt
+api-config.*
+*.secret
+*.credentials
+
+### AI Service Config ###
+ai_agent/.env
+ai_agent/config.py
+ai_agent/secrets.py
+
+### Any backup or temp files that might contain sensitive data ###
+*.bak
+*.backup
+*.tmp
+*_backup
+*_old
+*.orig 
