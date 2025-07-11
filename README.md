@@ -4,7 +4,10 @@
 ## 系统AI短片生成流程图
 ### AI短片创作流程说明
 本系统通过调用AI大模型API和多模态生成技术，实现从简单的故事梗概到生成AI短片全片的全流程自动化流程，系统流程图如下所示。
-![AI短片生成流程图](./Pics/AI短片生成流程图.png)
+<div align="center">
+<img src="./Pics/AI短片生成流程图.png" alt="AI短片生成流程图" 
+width="400">
+</div>
  **用户登录系统**  
 - 用户进入系统，完成账户登录。
 
@@ -62,7 +65,9 @@
 - **进度跟踪**：实时查看视频生成状态
 
 ## 系统架构
-![系统架构图](./Pics/系统架构图.png)
+<div align="center">
+  <img src="./Pics/系统架构图.png" alt="系统架构图" width="300">
+</div>
 
 ### 环境要求
 
@@ -201,7 +206,9 @@ python app.py
 本项目的核心亮点是基于LangChain框架构建的RAG（检索增强生成）智能助手，详见`ai_agent/`目录。
 
 ### RAG架构设计
-![AI短片生成流程图](./Pics/RAG结构图.png)
+<div align="center">
+  <img src="./Pics/RAG结构图.png" alt="AI短片生成流程图" width="250">
+</div>
 
 ### 技术实现细节
 
