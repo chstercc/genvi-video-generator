@@ -143,7 +143,7 @@ python app.py
 
 - **前端界面**: http://localhost:3000
 - **后端API**: http://localhost:8080
-- **AI服务**: http://localhost:8000
+- **AI助手服务**: http://localhost:8000
 - **音效生成（需要自行部署MMAudio开源项目）**: http://localhost:7860
 
 ## 使用指南
