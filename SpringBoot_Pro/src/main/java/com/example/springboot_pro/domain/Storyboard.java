@@ -29,6 +29,10 @@ public class Storyboard {
     @Column(name = "concept_image", columnDefinition = "TEXT")
     private String conceptImage;
     
+    // 添加网络图片URL字段，用于外部API调用
+    @Column(name = "network_image_url", columnDefinition = "TEXT")
+    private String networkImageUrl;
+    
     @Column(name = "generated_video", columnDefinition = "TEXT")
     private String generatedVideo;
     
@@ -148,6 +152,15 @@ public class Storyboard {
 
     public void setConceptImage(String conceptImage) {
         this.conceptImage = conceptImage;
+    }
+
+    // 新增网络图片URL的getter和setter
+    public String getNetworkImageUrl() {
+        return networkImageUrl;
+    }
+
+    public void setNetworkImageUrl(String networkImageUrl) {
+        this.networkImageUrl = networkImageUrl;
     }
 
     public String getGeneratedVideo() {

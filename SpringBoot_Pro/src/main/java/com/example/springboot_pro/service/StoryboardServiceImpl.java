@@ -144,8 +144,9 @@ public class StoryboardServiceImpl implements StoryboardService {
                         storyboard.getScene()
                     );
                     
-                    // 更新分镜头脚本的概念图为本地URL
-                    storyboard.setConceptImage(localImageUrl);
+                    // 同时存储本地URL和网络URL
+                    storyboard.setConceptImage(localImageUrl);      // 本地URL，用于前端显示
+                    storyboard.setNetworkImageUrl(networkImageUrl); // 网络URL，用于外部API调用
                     
                     return storyboardRepository.save(storyboard);
                 }).orElseThrow(() -> new RuntimeException("Storyboard not found with id: " + storyboardId));

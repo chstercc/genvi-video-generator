@@ -133,11 +133,11 @@ public class MusicController {
         // 简单的名称美化
         switch (nameWithoutExt.toLowerCase()) {
             case "music1":
-                return "轻快背景音乐";
+                return "古典背景音乐";
             case "music2":
-                return "温馨背景音乐";
+                return "悠闲背景音乐";
             case "music3":
-                return "史诗背景音乐";
+                return "热烈背景音乐";
             default:
                 return nameWithoutExt;
         }

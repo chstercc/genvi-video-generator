@@ -261,6 +261,7 @@ const loadStoryboard = async () => {
       imagePrompt: item.imagePrompt,
       videoPrompt: item.videoPrompt,
       conceptImage: item.conceptImage,
+      networkImageUrl: item.networkImageUrl,
       // 视频生成相关字段（从数据库加载）
       generatedVideo: item.generatedVideo,
       videoStatus: item.videoStatus,
@@ -299,10 +300,19 @@ const generateVideo = async (index) => {
     // 提交图生视频任务到山火API
     const generateRequest = {
       storyboardId: scene.id,
-      imageUrl: scene.conceptImage,
+      imageUrl: scene.networkImageUrl || scene.conceptImage, // 优先使用网络URL
       prompt: scene.videoPrompt || '',
       aspectRatio: '16:9' // 默认使用16:9比例
     }
+
+    // 调试信息
+    console.log('发送视频生成请求:', {
+      storyboardId: scene.id,
+      imageUrl: generateRequest.imageUrl,
+      networkImageUrl: scene.networkImageUrl,
+      conceptImage: scene.conceptImage,
+      prompt: scene.videoPrompt
+    })
 
     // 调用后端API提交视频生成任务
     const response = await fetch('http://localhost:8080/api/video/generate', {
