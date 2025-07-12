@@ -16,6 +16,9 @@ public class StoryboardServiceImpl implements StoryboardService {
     @Autowired
     private QianfanService qianfanService;
     
+    @Autowired
+    private SimpleImageService simpleImageService;
+    
     @Override
     public List<Storyboard> getStoryboardsByStoryId(Long storyId) {
         return storyboardRepository.findByStoryIdOrderBySceneAsc(storyId);
@@ -131,11 +134,18 @@ public class StoryboardServiceImpl implements StoryboardService {
                         throw new RuntimeException("文生图提示词不能为空，请先生成或编辑提示词");
                     }
                     
-                    // 调用千帆API生成图像
-                    String imageUrl = qianfanService.generateImage(storyboard.getImagePrompt());
+                    // 调用千帆API生成图像（获取网络URL）
+                    String networkImageUrl = qianfanService.generateImage(storyboard.getImagePrompt());
                     
-                    // 更新分镜头脚本的概念图
-                    storyboard.setConceptImage(imageUrl);
+                    // 下载图片到本地并获取简单的访问URL
+                    String localImageUrl = simpleImageService.downloadAndSaveImage(
+                        networkImageUrl, 
+                        storyboard.getStoryId(), 
+                        storyboard.getScene()
+                    );
+                    
+                    // 更新分镜头脚本的概念图为本地URL
+                    storyboard.setConceptImage(localImageUrl);
                     
                     return storyboardRepository.save(storyboard);
                 }).orElseThrow(() -> new RuntimeException("Storyboard not found with id: " + storyboardId));
