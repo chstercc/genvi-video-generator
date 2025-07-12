@@ -6,7 +6,7 @@
 本系统通过调用AI大模型API和多模态生成技术，实现从简单的故事梗概到生成AI短片全片的全流程自动化流程，系统流程图如下所示。
 <div align="center">
 <img src="./Pics/AI短片生成流程图.png" alt="AI短片生成流程图" 
-width="500">
+width="450">
 </div>
 
 **1. 输入故事梗概**  
@@ -64,7 +64,7 @@ width="500">
 
 ## 系统架构
 <div align="center">
-  <img src="./Pics/系统架构图.png" alt="系统架构图" width="500">
+  <img src="./Pics/系统架构图.png" alt="系统架构图" width="450">
 </div>
 
 ### 环境要求
