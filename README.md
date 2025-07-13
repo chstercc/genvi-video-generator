@@ -256,20 +256,25 @@ ai_agent/
 
 ```sql
 -- 用户表
-users: id, username, email, password, role, created_at
+users: id, username, email, password, role, created_at, updated_at
 
 -- 故事表  
-stories: id, title, content, user_id, created_at
+stories: id, title, content, user_id, author_name, created_at, updated_at
 
 -- 分镜表
-storyboards: id, story_id, scene, image_url, video_url, 
-            audio_video, video_status, audio_status, created_at
+storyboards: id, story_id, scene, script, image_prompt, video_prompt, 
+             concept_image, network_image_url, generated_video, 
+             video_generated_at, video_status, audio_video, 
+             audio_generated_at, audio_status, user_id, created_at, updated_at
 
--- 视频任务表
-video_tasks: id, storyboard_id, status, created_at, completed_at
+-- 分段视频表
+video_tasks: id, storyboard_id, task_id, image_url, prompt, aspect_ratio, 
+             status, video_url, error_message, user_id, 
+             created_at, updated_at, completed_at
 
 -- 完整视频表
-videos: id, user_id, story_id, video_url, status, created_at
+videos: id, user_id, story_id, video_url, status, created_at, updated_at
+
 ```
 
 ## 安全说明
@@ -284,9 +289,10 @@ videos: id, user_id, story_id, video_url, status, created_at
 
 ### Q: 如何获取API密钥？
 A: 
-- 千帆API: 注册百度智能云账户
-- 山火引擎: 注册字节跳动火山引擎
-- DeepSeek: 注册DeepSeek开放平台
+- 千帆API: 注册百度智能云账户 https://cloud.baidu.com/doc/WENXINWORKSHOP/s/flfmc9do2
+- 山火引擎: 注册字节跳动火山引擎 https://www.volcengine.com/
+- DeepSeek: 注册DeepSeek开放平台 https://platform.deepseek.com/usage
+-  MMAudio: 音效生成服务（开源项目）：https://github.com/hkchengrex/MMAudio?tab=readme-ov-file
 
 ### Q: 视频生成失败怎么办？
 A: 
@@ -298,7 +304,6 @@ A:
 A: 
 1. 确认MMAudio项目部署成功并且Gradio服务已启动
 2. 检查端口7860是否可访问
-3. 确认Python环境和依赖包正确安装
 
 ### Q: AI小助手无法生成故事？
 A:
