@@ -20,7 +20,7 @@ def augment_prompt(query: str, knowledgebases: list, api_key: str):
         "knowledgebase_ids": knowledgebases
     }
 
-    print(f"🔍 正在调用知识库 API，query='{query}', knowledgebase_ids={knowledgebases}")
+    print(f"正在调用知识库 API，query='{query}', knowledgebase_ids={knowledgebases}")
 
     try:
         response = requests.post(url=API_URL, headers=HEADERS, json=payload)

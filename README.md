@@ -136,7 +136,7 @@ export DEEPSEEK_API_KEY=your_deepseek_key
 export QIANFAN_API_KEY=your_qianfan_key
 
 # 启动FastAPI服务
-python app.py
+uvicorn app:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### 访问系统
@@ -145,6 +145,8 @@ python app.py
 - **后端API**: http://localhost:8080
 - **AI助手服务**: http://localhost:8000
 - **音效生成（需要自行部署MMAudio开源项目）**: http://localhost:7860
+
+**ps**：MMAudio开源项目地址为 https://github.com/hkchengrex/MMAudio?tab=readme-ov-file
 
 ## 使用指南
 

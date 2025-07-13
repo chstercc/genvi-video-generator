@@ -386,7 +386,6 @@ onMounted(() => {
   }
 }
 
-/* 响应式设计 */
 @media (max-width: 480px) {
   .login-wrapper {
     padding: 30px 20px;
