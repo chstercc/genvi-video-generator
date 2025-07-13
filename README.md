@@ -84,26 +84,12 @@ cd AI-Video-Generation-System
 
 #### 2. 配置环境变量
 
-创建配置文件：
-```bash
-# 后端配置
-cd SpringBoot_Pro
-cp env.example .env
-# 编辑 .env 文件，填入你的API密钥
-
-# 前端配置  
-cd VUE_Pro/todo_front
-cp env.example .env.local
-# 编辑 .env.local 文件
-```
+配置系统所需要的大模型API，MySQL数据库配置等内容。
 
 **环境变量配置示例**：
 ```env
 # 数据库配置
 DB_PASSWORD=your_database_password
-
-# JWT配置
-JWT_SECRET=your_jwt_secret_key_minimum_256_bits
 
 # 千帆API配置
 QIANFAN_API_TOKEN=your_qianfan_api_token
